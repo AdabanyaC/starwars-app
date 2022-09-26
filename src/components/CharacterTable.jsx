@@ -118,16 +118,25 @@ const CharacterTable = () => {
     setIsAll(true);
     setIsMale(false);
     setIsFemale(false);
+    setIsSortedByName(false);
+    setIsSortedByGender(false);
+    setIsSortedByHeight(false);
   };
   const showMale = () => {
     setIsAll(false);
     setIsMale(true);
     setIsFemale(false);
+    setIsSortedByName(false);
+    setIsSortedByGender(false);
+    setIsSortedByHeight(false);
   };
   const showFemale = () => {
     setIsAll(false);
     setIsMale(false);
     setIsFemale(true);
+    setIsSortedByName(false);
+    setIsSortedByGender(false);
+    setIsSortedByHeight(false);
   };
 
   // Functions to Handle Sorted States
@@ -185,17 +194,17 @@ const CharacterTable = () => {
         <Table.Head className="bg-white text-left">
           <Table.HeadCell>
             <button className="font-bold" onClick={handleSortByName}>
-              Name
+              Name <i class="bi bi-arrow-down-up ml-20"></i>
             </button>
           </Table.HeadCell>
           <Table.HeadCell>
             <button className="font-bold" onClick={handleSortByGender}>
-              Gender
+              Gender <i class="bi bi-arrow-down-up ml-10"></i>
             </button>
           </Table.HeadCell>
           <Table.HeadCell>
             <button className="font-bold" onClick={handleSortByHeight}>
-              Height
+              Height <i class="bi bi-arrow-down-up ml-20"></i>
             </button>
           </Table.HeadCell>
         </Table.Head>
