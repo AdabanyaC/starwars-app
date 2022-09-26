@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: "Manrope", sans-serif;
+}
+
+/* Custom Scrollbar */
+.movie-card-wrapper::-webkit-scrollbar {
+  width: 8px;
+}
+
+.movie-card-wrapper::-webkit-scrollbar-track {
+  background-color: #232f43;
+  border-radius: 100px;
+}
+
+.movie-card-wrapper::-webkit-scrollbar-thumb {
+  background-color: #fff;
+  border-radius: 100px;
+}
+
+/* Canvas Component */
+.backdrop {
+  background: rgba(0, 0, 0, 0.75);
+}
