@@ -67,7 +67,7 @@ const MovieList = () => {
           const { episode_id, title } = list;
           return (
             <div key={episode_id}>
-              <div className="flex gap-8 p-5 hover:cursor-pointer text-main-yellow">
+              <div className="flex gap-8 p-5 hover:cursor-pointer text-white">
                 <div>
                   <NavLink to={`/movie/${i + 1}`}>
                     <p className="font-semibold">

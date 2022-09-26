@@ -1,6 +1,6 @@
 import React, { Fragment, useState, useEffect } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import SingleMovieBg from "./../assets/bg/starwars.svg";
 import CardBg from "./../assets/bg/starwarsTwo.svg";
 import CharacterTable from "./CharacterTable";
@@ -66,7 +66,6 @@ const SingleMovie = () => {
                   fill="currentFill"
                 />
               </svg>
-              <span className="sr-only">Loading...</span>
             </div>
           ) : error ? (
             <div className="bg-black h-4/5 w-3/5 rounded-lg shadow-2xl flex justify-center items-center">
@@ -74,15 +73,22 @@ const SingleMovie = () => {
             </div>
           ) : (
             <div className="bg-black h-4/5 w-3/5 rounded-lg shadow-2xl">
-              <div
-                className="h-1/3 text-white flex flex-col justify-end px-8 py-6 rounded-t-lg"
-                style={cardStyle}
-              >
-                <h3 className="text-4xl"> {movieDetails.title} </h3>
-                <p className="text-xs mt-2">{movieDetails.opening_crawl}</p>
+              <div className="h-2/5 rounded-t-lg" style={cardStyle}>
+                <div className="px-8 pt-4">
+                  <NavLink to={"/"} className="text-main-yellow underline ">
+                    Home
+                  </NavLink>
+                </div>
+                <div className="text-white flex flex-col px-8 py-10">
+                  <h3 className="text-4xl font-bold"> {movieDetails.title} </h3>
+                  <p className="text-sm">Director: {movieDetails.director} </p>
+                  <p className="text-xs mt-4">{movieDetails.opening_crawl}</p>
+                </div>
               </div>
-              <div className="h-2/3 rounded-b-lg overflow-auto movie-card-wrapper">
-                <CharacterTable />
+              <div className="h-3/5 rounded-b-lg overflow-auto movie-card-wrapper">
+                <div className="px-8 py-6">
+                  <CharacterTable />
+                </div>
               </div>
             </div>
           )}
