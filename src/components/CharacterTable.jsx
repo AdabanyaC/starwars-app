@@ -87,16 +87,40 @@ const CharacterTable = () => {
               })
             );
 
-            const newArray = response.filter((item) => {
-              return item.height !== "unknown";
-            });
-
-            console.log("New Heights Array", newArray);
+            // Calculating Sum of Heights For Each Character Property
 
             setSumOfHeights(
-              newArray.reduce((sum, res) => {
-                return Number(sum) + Number(res.height);
-              }, 0)
+              response
+                .filter((item) => {
+                  return item.height !== "unknown";
+                })
+                .reduce((sum, res) => {
+                  return Number(sum) + Number(res.height);
+                }, 0)
+            );
+            setSumOfHeightsMale(
+              response
+                .filter((item) => {
+                  return item.height !== "unknown";
+                })
+                .filter((e) => {
+                  return e.gender === "male";
+                })
+                .reduce((sum, res) => {
+                  return Number(sum) + Number(res.height);
+                }, 0)
+            );
+            setSumOfHeightsFemale(
+              response
+                .filter((item) => {
+                  return item.height !== "unknown";
+                })
+                .filter((e) => {
+                  return e.gender === "female";
+                })
+                .reduce((sum, res) => {
+                  return Number(sum) + Number(res.height);
+                }, 0)
             );
 
             setLoading(false);
@@ -157,6 +181,8 @@ const CharacterTable = () => {
   };
 
   console.log(sumOfHeights);
+  console.log(sumOfHeightsMale);
+  console.log(sumOfHeightsFemale);
 
   return (
     <Fragment>
@@ -365,11 +391,24 @@ const CharacterTable = () => {
                 ? males.length
                 : isFemale && females
                 ? females.length
-                : null}
+                : `Nothing to show`}
             </Table.Cell>
             <Table.Cell></Table.Cell>
             <Table.Cell className="text-black font-bold">
-              Sum of Heights: {sumOfHeights}
+              Sum of Heights: <br />
+              {isAll && all
+                ? `${sumOfHeights}cm (${(sumOfHeights / 30.48).toFixed(2)}ft/${(
+                    sumOfHeights / 2.54
+                  ).toFixed(2)}in)`
+                : isMale && males
+                ? `${sumOfHeightsMale}cm (${(sumOfHeightsMale / 30.48).toFixed(
+                    2
+                  )}ft/${(sumOfHeightsMale / 2.54).toFixed(2)}in)`
+                : isFemale && females
+                ? `${sumOfHeightsFemale}cm (${(
+                    sumOfHeightsFemale / 30.48
+                  ).toFixed(2)}ft/${(sumOfHeightsFemale / 2.54).toFixed(2)}in)`
+                : `Nothing to show`}
             </Table.Cell>
           </Table.Row>
         </Table.Body>
