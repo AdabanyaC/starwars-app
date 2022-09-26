@@ -26,6 +26,11 @@ const CharacterTable = () => {
   const [isSortedByGender, setIsSortedByGender] = useState(false);
   const [isSortedByHeight, setIsSortedByHeight] = useState(false);
 
+  // State To Handle Sum of Heights
+  const [sumOfHeights, setSumOfHeights] = useState(0);
+  const [sumOfHeightsMale, setSumOfHeightsMale] = useState(0);
+  const [sumOfHeightsFemale, setSumOfHeightsFemale] = useState(0);
+
   useEffect(() => {
     const getall = async () => {
       setLoading(true);
@@ -82,10 +87,23 @@ const CharacterTable = () => {
               })
             );
 
+            const newArray = response.filter((item) => {
+              return item.height !== "unknown";
+            });
+
+            console.log("New Heights Array", newArray);
+
+            setSumOfHeights(
+              newArray.reduce((sum, res) => {
+                return Number(sum) + Number(res.height);
+              }, 0)
+            );
+
             setLoading(false);
           })
           .catch((err) => {
             setError(err.message);
+            setLoading(false);
           });
       } catch (err) {
         setError(err.message);
@@ -129,7 +147,7 @@ const CharacterTable = () => {
     setIsSortedByHeight(true);
   };
 
-  console.log(all);
+  console.log(sumOfHeights);
 
   return (
     <Fragment>
@@ -342,7 +360,7 @@ const CharacterTable = () => {
             </Table.Cell>
             <Table.Cell></Table.Cell>
             <Table.Cell className="text-black font-bold">
-              Sum of Heights:
+              Sum of Heights: {sumOfHeights}
             </Table.Cell>
           </Table.Row>
         </Table.Body>
