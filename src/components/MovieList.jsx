@@ -7,33 +7,32 @@ const MovieList = () => {
   const [listOfMovies, setListOfMovies] = useState([]);
   const [error, setError] = useState("");
 
-  const getListOfMovies = async () => {
-    setLoading(true);
-
-    try {
-      const swapiData = await axios.get(`https://swapi.dev/api/films`);
-
-      let { results } = swapiData.data;
-
-      // Sorting List of Movies From Earliest to Newest
-      results.map((obj) => {
-        return { ...obj, release_date: new Date(obj.release_date) };
-      });
-
-      const sortedAsc = results
-        .slice()
-        .sort((objA, objB) => Number(objA.date) - Number(objB.date));
-
-      setListOfMovies(sortedAsc);
-
-      setLoading(false);
-    } catch (err) {
-      setError(err.message);
-      setLoading(false);
-    }
-  };
-
   useEffect(() => {
+    const getListOfMovies = async () => {
+      setLoading(true);
+
+      try {
+        const swapiData = await axios.get(`https://swapi.dev/api/films`);
+
+        let { results } = swapiData.data;
+
+        // Sorting List of Movies From Earliest to Newest
+        results.map((obj) => {
+          return { ...obj, release_date: new Date(obj.release_date) };
+        });
+
+        const sortedAsc = results
+          .slice()
+          .sort((objA, objB) => Number(objA.date) - Number(objB.date));
+
+        setListOfMovies(sortedAsc);
+
+        setLoading(false);
+      } catch (err) {
+        setError(err.message);
+        setLoading(false);
+      }
+    };
     getListOfMovies();
   }, []);
 
@@ -59,15 +58,22 @@ const MovieList = () => {
           </svg>
           <span className="sr-only">Loading...</span>
         </div>
+      ) : error ? (
+        <div>
+          <p>{error}</p>
+        </div>
       ) : (
-        listOfMovies.map((list) => {
+        listOfMovies.map((list, i) => {
           const { episode_id, title } = list;
           return (
             <div key={episode_id}>
               <div className="flex gap-8 p-5 hover:cursor-pointer text-main-yellow">
                 <div>
-                  <NavLink to={`/movie/${episode_id}`}>
-                    <p className="font-semibold">🍿 {title} </p>
+                  <NavLink to={`/movie/${i + 1}`}>
+                    <p className="font-semibold">
+                      {" "}
+                      {`${i + 1})`} {title}{" "}
+                    </p>
                   </NavLink>
                 </div>
               </div>
