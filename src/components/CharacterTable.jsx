@@ -269,7 +269,7 @@ const CharacterTable = () => {
               return (
                 <Fragment>
                   <Table.Row className=" dark:border-gray-700 dark:bg-gray-800">
-                    <Table.Cell className="whitespace-nowrap font-medium  dark:text-white">
+                    <Table.Cell className="p-3 whitespace-nowrap font-medium  dark:text-white">
                       {cd.name}
                     </Table.Cell>
                     <Table.Cell className="capitalize">{cd.gender}</Table.Cell>
@@ -289,7 +289,7 @@ const CharacterTable = () => {
               return (
                 <Fragment>
                   <Table.Row className=" dark:border-gray-700 dark:bg-gray-800">
-                    <Table.Cell className="whitespace-nowrap font-medium  dark:text-white">
+                    <Table.Cell className="p-3 whitespace-nowrap font-medium  dark:text-white">
                       {cd.name}
                     </Table.Cell>
                     <Table.Cell className="capitalize">{cd.gender}</Table.Cell>
@@ -309,7 +309,7 @@ const CharacterTable = () => {
               return (
                 <Fragment>
                   <Table.Row className=" dark:border-gray-700 dark:bg-gray-800">
-                    <Table.Cell className="whitespace-nowrap font-medium  dark:text-white">
+                    <Table.Cell className="p-3 whitespace-nowrap font-medium  dark:text-white">
                       {cd.name}
                     </Table.Cell>
                     <Table.Cell className="capitalize">{cd.gender}</Table.Cell>
@@ -329,7 +329,7 @@ const CharacterTable = () => {
               return (
                 <Fragment>
                   <Table.Row className=" dark:border-gray-700 dark:bg-gray-800">
-                    <Table.Cell className="whitespace-nowrap font-medium  dark:text-white">
+                    <Table.Cell className="p-3 whitespace-nowrap font-medium  dark:text-white">
                       {cd.name}
                     </Table.Cell>
                     <Table.Cell className="capitalize">{cd.gender}</Table.Cell>
@@ -349,7 +349,7 @@ const CharacterTable = () => {
               return (
                 <Fragment>
                   <Table.Row className=" dark:border-gray-700 dark:bg-gray-800">
-                    <Table.Cell className="whitespace-nowrap font-medium  dark:text-white">
+                    <Table.Cell className="p-3 whitespace-nowrap font-medium  dark:text-white">
                       {cd.name}
                     </Table.Cell>
                     <Table.Cell className="capitalize">{cd.gender}</Table.Cell>
@@ -368,7 +368,7 @@ const CharacterTable = () => {
               return (
                 <Fragment>
                   <Table.Row className=" dark:border-gray-700 dark:bg-gray-800">
-                    <Table.Cell className="whitespace-nowrap font-medium  dark:text-white">
+                    <Table.Cell className="p-3 whitespace-nowrap font-medium  dark:text-white">
                       {cd.name}
                     </Table.Cell>
                     <Table.Cell className="capitalize">{cd.gender}</Table.Cell>
@@ -383,7 +383,7 @@ const CharacterTable = () => {
             })}
           {}
           <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
-            <Table.Cell className="text-black font-bold">
+            <Table.Cell className="text-black font-bold p-3">
               Total Characters:
               {isAll && all
                 ? all.length
@@ -391,7 +391,7 @@ const CharacterTable = () => {
                 ? males.length
                 : isFemale && females
                 ? females.length
-                : `Nothing to show`}
+                : `Fetching data...`}
             </Table.Cell>
             <Table.Cell></Table.Cell>
             <Table.Cell className="text-black font-bold">
@@ -408,7 +408,7 @@ const CharacterTable = () => {
                 ? `${sumOfHeightsFemale}cm (${(
                     sumOfHeightsFemale / 30.48
                   ).toFixed(2)}ft/${(sumOfHeightsFemale / 2.54).toFixed(2)}in)`
-                : `Nothing to show`}
+                : `Fetching data...`}
             </Table.Cell>
           </Table.Row>
         </Table.Body>

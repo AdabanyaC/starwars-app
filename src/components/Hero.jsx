@@ -25,16 +25,20 @@ const Hero = () => {
           canvasComponent={<MovieList />}
         />
       )}
-      <div className={`bg-black h-screen`} style={heroStyle}>
-        <div className="flex justify-end px-4 pt-8">
+      <div className={`bg-black h-screen overflow-hidden`} style={heroStyle}>
+        <div className="flex justify-end px-4 pt-8 animate__animated animate__fadeIn animate__delay-2s">
           <PrimaryButtonOutlineWithIcon
             btnText={"View Github Repository"}
             url="https://github.com/AdabanyaC/starwars-app"
           />
         </div>
-        <div className="flex justify-center flex-col items-center h-full">
-          <img src={StarwarsLogo} alt="Starwars Logo" className="h-3/5" />
-          <div>
+        <div className="flex flex-col items-center h-full">
+          <img
+            src={StarwarsLogo}
+            alt="Starwars Logo"
+            className="h-3/4 animate__animated animate__zoomIn"
+          />
+          <div className="animate__animated animate__backInUp">
             <PrimaryButtonWithIcon
               btnText={"Choose a Star Wars Movie"}
               onClick={toggleOffCanvas}

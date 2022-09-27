@@ -27,7 +27,7 @@ const Canvas = ({
   });
 
   return (
-    <div className="backdrop bottom-0 left-0 absolute overflow-auto right-0 top-0 z-9999">
+    <div className="backdrop bottom-0 left-0 absolute overflow-auto right-0 top-0 z-[9999]">
       <div className=" animate__animated animate__slideInRight animate__faster">
         <div className="w-1/3 bg-black absolute right-0 min-h-screen top-0">
           <div className="flex justify-between flex-row-reverse bg-main-yellow px-4 py-6 shadow">

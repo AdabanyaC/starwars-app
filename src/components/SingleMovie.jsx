@@ -82,7 +82,9 @@ const SingleMovie = () => {
                 <div className="text-white flex flex-col px-8 py-10">
                   <h3 className="text-4xl font-bold"> {movieDetails.title} </h3>
                   <p className="text-sm">Director: {movieDetails.director} </p>
-                  <p className="text-xs mt-4">{movieDetails.opening_crawl}</p>
+                  <p className="text-xs mt-4 animate__animated animate__fadeInDown">
+                    {movieDetails.opening_crawl}
+                  </p>
                 </div>
               </div>
               <div className="h-3/5 rounded-b-lg overflow-auto movie-card-wrapper">
