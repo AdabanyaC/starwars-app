@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from "react";
 import StarwarsLogo from "./../assets/logo.png";
 import HeroBg from "./../assets/hero/herobg.svg";
-import { PrimaryButtonWithIcon } from "./Buttons";
+import { PrimaryButtonOutlineWithIcon, PrimaryButtonWithIcon } from "./Buttons";
 import Offcanvas from "./Offcanvas";
 import MovieList from "./MovieList";
 
@@ -26,8 +26,14 @@ const Hero = () => {
         />
       )}
       <div className={`bg-black h-screen`} style={heroStyle}>
+        <div className="flex justify-end px-4 pt-8">
+          <PrimaryButtonOutlineWithIcon
+            btnText={"View Github Repository"}
+            url="https://github.com/AdabanyaC/starwars-app"
+          />
+        </div>
         <div className="flex justify-center flex-col items-center h-full">
-          <img src={StarwarsLogo} alt="Starwars Logo" className="h-4/5" />
+          <img src={StarwarsLogo} alt="Starwars Logo" className="h-3/5" />
           <div>
             <PrimaryButtonWithIcon
               btnText={"Choose a Star Wars Movie"}

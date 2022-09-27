@@ -1,15 +1,15 @@
-export const PrimaryButton = ({ btnText, bgColor, textColor }) => {
+export const PrimaryButtonOutlineWithIcon = ({ btnText, url }) => {
   return (
-    <button
-      className={`px-6 py-3 rounded font-semibold ${bgColor} ${
-        bgColor === "main-red" ? `text-white` : textColor
-      }`}
-    >
-      {btnText}
-    </button>
+    <a href={url} target="_blank" rel="noreferrer">
+      <button
+        className={`flex gap-2 px-6 py-3 rounded font-semibold border text-white border-main-yellow hover:bg-main-yellow hover:text-black`}
+      >
+        <i className="bi bi-github"></i>
+        <p>{btnText}</p>
+      </button>
+    </a>
   );
 };
-
 export const PrimaryButtonWithIcon = ({
   btnText,
   bgColor,
@@ -23,18 +23,6 @@ export const PrimaryButtonWithIcon = ({
     >
       <p>{btnText}</p>
       <i className="bi bi-camera-reels-fill"></i>
-    </button>
-  );
-};
-
-export const PrimaryButtonLg = ({ btnText, bgColor, textColor }) => {
-  return (
-    <button
-      className={`px-16 py-4 font-semibold rounded ${bgColor} ${
-        bgColor === "main-red" ? `text-white` : textColor
-      }`}
-    >
-      {btnText}
     </button>
   );
 };
